@@ -1,5 +1,10 @@
 class Body extends React.Component {
   render() {
-    return <div> <AllItems /> </div>;
+    return (
+      <div>
+        <NewItem />
+        <AllItems />
+      </div>
+    );
   }
 }
