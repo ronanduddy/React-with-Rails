@@ -5,6 +5,9 @@ class Body extends React.Component {
     this.state = {
       items: []
     };
+
+    {/* need to look at what/how bind is/works! */}
+    this.handleNewItem = this.handleNewItem.bind(this);
   }
 
   componentDidMount() {
@@ -14,10 +17,15 @@ class Body extends React.Component {
     );
   }
 
+  handleNewItem(item) {
+    console.log(this.state);
+    this.setState({ items: this.state.items.concat(item) });
+  }
+
   render() {
     return (
       <div>
-        <NewItem />
+        <NewItem handleNewItem={this.handleNewItem} />
         <AllItems items={this.state.items} />
       </div>
     );

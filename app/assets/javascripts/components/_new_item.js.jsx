@@ -31,7 +31,7 @@ class NewItem extends React.Component {
           description: this.state.description
         }
       },
-      success: (response) => { console.log('it worked!', response); }
+      success: (item) => { this.props.handleNewItem(item) }
     });
 
     event.preventDefault();
