@@ -8,13 +8,19 @@ class AllItems extends React.Component {
     this.props.handleItemDeletion(id);
   }
 
+  handleUpdate(item){
+    this.props.handleItemUpdate(item);
+  }
+
   render() {
+    {/* need to look at why ids can/t be passed into bind */}
     const items = this.props.items.map((item) => {
       return (
-        <div key={item.id}> {/* key is important for list of similar elements */}
-          <h3>#{item.id} {item.name}</h3>
-          <p>{item.description}</p>
-          <button onClick={this.handleDelete.bind(this, item.id)}>Delete</button>
+        <div key={item.id} >
+          <Item
+            item={item}
+            handleDelete={this.handleDelete.bind(this, item.id)}
+            handleUpdate={this.handleUpdate.bind(this)} />
         </div>
       )
     });

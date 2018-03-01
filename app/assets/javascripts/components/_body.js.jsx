@@ -9,6 +9,7 @@ class Body extends React.Component {
     {/* need to look at what/how bind is/works! */}
     this.handleNewItem = this.handleNewItem.bind(this);
     this.handleItemDeletion = this.handleItemDeletion.bind(this);
+    this.handleItemUpdate = this.handleItemUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -22,7 +23,7 @@ class Body extends React.Component {
     this.setState({ items: this.state.items.concat(item) });
   }
 
-  handleItemDeletion(id){
+  handleItemDeletion(id) {
     $.ajax({
       url: `/api/v1/items/${id}`,
       type: 'DELETE',
@@ -34,11 +35,27 @@ class Body extends React.Component {
     });
   }
 
+  handleItemUpdate(item) {
+    $.ajax({
+      url: `/api/v1/items/${item.id}`,
+      type: 'PUT',
+      data: { item: item },
+      success: () => {
+        const items = this.state.items.filter((i) => { return i.id != item.id });
+        items.push(item);
+        this.setState({items: items });
+      }
+    });
+  }
+
   render() {
     return (
       <div>
         <NewItem handleNewItem={this.handleNewItem} />
-        <AllItems items={this.state.items} handleItemDeletion={this.handleItemDeletion} />
+        <AllItems
+          items={this.state.items}
+          handleItemDeletion={this.handleItemDeletion}
+          handleItemUpdate={this.handleItemUpdate}/>
       </div>
     );
   }
