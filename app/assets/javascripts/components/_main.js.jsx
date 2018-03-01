@@ -1,5 +1,10 @@
 class Main extends React.Component {
   render() {
-    return <div> <Header /> <Body /> </div>;
+    return (
+      <div>
+        <Header />
+        <Body />
+      </div>
+    );
   }
 }
