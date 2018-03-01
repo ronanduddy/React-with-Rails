@@ -9,10 +9,6 @@ class AllItems extends React.Component {
 
 
   componentDidMount() {
-    this.getItems();
-  }
-
-  getItems(){
     $.getJSON(
       '/api/v1/items.json',
       (response) => { this.setState({ items: response }) }
@@ -28,6 +24,6 @@ class AllItems extends React.Component {
         </div>
       )
     });
-    return <div> <h2>All Items</h2> {items} </div>;
+    return <div> <h2>All Items (x{items.length})</h2> {items} </div>;
   }
 }
