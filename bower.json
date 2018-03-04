@@ -1,0 +1,22 @@
+{
+  "name": "item_cart",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "4.0.0"
+  },
+  "homepage": "https://github.com/ronanduddy/item_cart",
+  "authors": [
+    "ronanduddy <ronanduddy@live.ie>"
+  ],
+  "description": "test app",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ]
+}
