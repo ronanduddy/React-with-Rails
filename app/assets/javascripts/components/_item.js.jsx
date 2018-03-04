@@ -28,14 +28,20 @@ class Item extends React.Component {
   render() {
     {/* need to look at how uncontrolled forms work (refs) */}
     const item = this.props.item;
-    const name = this.state.editable ? <input ref={(name) => this.name = name} type='text' defaultValue={item.name} /> : <h3>{item.name}</h3>;
-    const description = this.state.editable ? <input ref={(description) => this.description = description} type='text' defaultValue={item.description} />: <p>{item.description}</p>;
+    const name = this.state.editable ? <input className="form-control" ref={(name) => this.name = name} type='text' defaultValue={item.name} /> : <h3 className="card-title">{item.name}</h3>;
+    const description = this.state.editable ? <input className="form-control" ref={(description) => this.description = description} type='text' defaultValue={item.description} /> : <p className="card-text">{item.description}</p>;
     return (
-      <div>
-        {name}
-        {description}
-        <button onClick={this.onDelete.bind(this, item.id)}>Delete</button>
-        <button onClick={this.handleEdit}>{this.state.editable ? 'Submit' : 'Edit' }</button>
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <div className="card">
+            <div className="card-body">
+              {name}
+              {description}
+              <a href="#" className="card-link" onClick={this.handleEdit}>{this.state.editable ? 'Submit' : 'Edit' }</a>
+              <a href="#" className="card-link" onClick={this.onDelete.bind(this, item.id)}>Delete</a>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

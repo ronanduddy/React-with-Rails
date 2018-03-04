@@ -39,29 +39,35 @@ class NewItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Create New Item</h2>
-        <div>
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <h2>Create New Item</h2>
           <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
             <label>
               Name:
-              <input
-                name="name"
-                type="text"
-                value={this.state.name}
-                onChange={this.handleChange} />
             </label>
-            <br />
+            <input
+              name="name"
+              type="text"
+              className="form-control"
+              value={this.state.name}
+              onChange={this.handleChange} />
+            </div>
+            <div className="form-group">
             <label>
               Description:
+              </label>
               <input
                 name="description"
                 type="text"
+                className="form-control"
                 value={this.state.description}
                 onChange={this.handleChange} />
-            </label>
-            <br />
-            <input type="submit" value="Submit" />
+            </div>
+            <div className="float-right">
+              <input className="btn btn-primary" type="submit" value="Submit" />
+            </div>
           </form>
         </div>
       </div>

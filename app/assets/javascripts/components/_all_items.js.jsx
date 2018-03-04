@@ -27,7 +27,11 @@ class AllItems extends React.Component {
 
     return (
       <div>
-        <h2>All Items (x{items.length})</h2>
+        <div className="row justify-content-center">
+          <div className="col-6">
+            <h2>Listing All Items (x{items.length})</h2>
+          </div>
+        </div>
         {items}
       </div>
     );
