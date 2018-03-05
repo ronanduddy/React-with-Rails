@@ -18,3 +18,6 @@
 
 
 .byebug_history
+
+config/application.yml
+config/database.yml
