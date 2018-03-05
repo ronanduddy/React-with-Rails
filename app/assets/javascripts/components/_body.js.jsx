@@ -40,9 +40,9 @@ class Body extends React.Component {
       url: `/api/v1/items/${item.id}`,
       type: 'PUT',
       data: { item: item },
-      success: () => {
-        const items = this.state.items.filter((i) => { return i.id != item.id });
-        items.push(item);
+      success: (response) => {
+        const items = this.state.items.filter((i) => { return i.id != response.id });
+        items.push(response);
         this.setState({items: items });
       }
     });

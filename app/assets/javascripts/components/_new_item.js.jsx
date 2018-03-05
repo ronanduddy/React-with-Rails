@@ -44,21 +44,21 @@ class NewItem extends React.Component {
           <h2>Create New Item</h2>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-            <label>
-              Name:
-            </label>
-            <input
-              name="name"
-              type="text"
-              className="form-control"
-              value={this.state.name}
-              onChange={this.handleChange} />
-            </div>
-            <div className="form-group">
-            <label>
-              Description:
+              <label>
+                Name
               </label>
               <input
+                name="name"
+                type="text"
+                className="form-control"
+                value={this.state.name}
+                onChange={this.handleChange} />
+              </div>
+            <div className="form-group">
+              <label>
+                Description
+              </label>
+              <textarea
                 name="description"
                 type="text"
                 className="form-control"

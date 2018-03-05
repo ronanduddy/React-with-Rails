@@ -29,7 +29,7 @@ class AllItems extends React.Component {
       <div>
         <div className="row justify-content-center">
           <div className="col-6">
-            <h2>Listing All Items (x{items.length})</h2>
+            <h2>Items <span className="badge badge-primary">{items.length}</span></h2>
           </div>
         </div>
         {items}
