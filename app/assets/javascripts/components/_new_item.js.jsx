@@ -4,11 +4,13 @@ class NewItem extends React.Component {
     super(props);
     this.state = {
       name: '',
-      description: ''
+      description: '',
+      errors: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNewItemError = this.handleNewItemError.bind(this);
   }
 
   handleChange(event) {
@@ -31,10 +33,24 @@ class NewItem extends React.Component {
           description: this.state.description
         }
       },
-      success: (item) => { this.props.handleNewItem(item) }
+      success: (item) => {
+        this.props.handleNewItem(item);
+        this.setState({
+          name: '',
+          description: '',
+          errors: {}
+        });
+      },
+      error: (xhr, status, err) => {
+        this.handleNewItemError(xhr.responseJSON.errors);
+      }
     });
 
     event.preventDefault();
+  }
+
+  handleNewItemError(errors){
+    this.setState({ errors: errors });
   }
 
   render() {
@@ -50,9 +66,14 @@ class NewItem extends React.Component {
               <input
                 name="name"
                 type="text"
-                className="form-control"
+                className={`form-control ${('name' in this.state.errors) ? 'is-invalid' : ''}`}
                 value={this.state.name}
                 onChange={this.handleChange} />
+                {('name' in this.state.errors) &&
+                  <div className="invalid-feedback">
+                    {this.state.errors.name}
+                  </div>
+                }
               </div>
             <div className="form-group">
               <label>
@@ -61,9 +82,14 @@ class NewItem extends React.Component {
               <textarea
                 name="description"
                 type="text"
-                className="form-control"
+                className={`form-control ${('description' in this.state.errors) ? 'is-invalid' : ''}`}
                 value={this.state.description}
                 onChange={this.handleChange} />
+                {('description' in this.state.errors) &&
+                  <div className="invalid-feedback">
+                    {this.state.errors.description}
+                  </div>
+                }
             </div>
             <div className="float-right">
               <input className="btn btn-primary" type="submit" value="Submit" />
