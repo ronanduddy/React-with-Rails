@@ -46,7 +46,7 @@ group :development do
   gem 'spring'
 
   gem 'capistrano'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano-passenger'
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
