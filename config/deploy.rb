@@ -1,3 +1,4 @@
+lock '3.4.0'
 set :application, 'react-with-rails'
 set :repo_url, 'git@github.com:ronanduddy/React-with-Rails.git' # Edit this to match your repository
 set :branch, :master
