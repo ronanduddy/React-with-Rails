@@ -6,6 +6,9 @@ ruby '2.3.0'
 gem 'rails', '4.2.6'
 
 gem 'mysql2'
+
+gem 'puma'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,4 +61,3 @@ gem 'responders'
 gem 'react-rails'
 
 gem 'figaro'
-gem 'puma'
