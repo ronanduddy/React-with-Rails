@@ -3,7 +3,7 @@ This a test web app I built to learn the basics of React.
 
 === Architecture
 ==== Backend
-Ruby on Rails
+Ruby on Rails exposes a simple API utilised by the frontend.
 
 ==== Frontend
 React with Twitter Bootstrap 4 styling (managed by bower (which is apparently quite old...))
