@@ -9,6 +9,6 @@ Ruby on Rails exposes a simple API utilised by the frontend.
 React with Twitter Bootstrap 4 styling (managed by bower (which is apparently quite old...))
 
 ==== Hosting
-The app is currently hosted on an AWS EC2 instance here: http://54.84.92.2/.
+The app was hosted on an AWS EC2 instance.
 Capistrano is used for deployments, however it would be really nice to dockerise the app. 
 Puma is used for running the app and Nginx is used for handling requests. 
